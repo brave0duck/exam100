@@ -18,7 +18,7 @@ func main() {
 	fmt.Scanf("%d\n", &height)
 	fmt.Print("체중 (kg) : ")
 	fmt.Scanf("%d\n", &weight)
-램
+
 	s := bmi_calc(height, weight)
 	if s == "" {
 		fmt.Println("error occured")
