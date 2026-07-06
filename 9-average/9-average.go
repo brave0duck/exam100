@@ -26,7 +26,7 @@ func main() {
 	fmt.Printf("기하평균 : %.2f\n", geo_mean(nlist))
 }
 
-// 평균값
+// 평균값. 합/총갯수
 func average(n []int) int {
 	var total int
 	size := len(n)
@@ -36,7 +36,7 @@ func average(n []int) int {
 	return total / size
 }
 
-// 최빈값
+// 최빈값. 맵자료구조를 이용해 카운팅. 최다카운팅을 모아 []int에 넣어서 리턴
 func mean(n []int) []int {
 	m := map[int]int{}
 	result := []int{}
@@ -56,7 +56,7 @@ func mean(n []int) []int {
 	return result
 }
 
-// 중앙값. 홀수면 그값
+// 중앙값. 멤버숫자가 짝수면 (n-1 + n) /2 .홀수면 그값
 func median(n []int) int {
 	size := len(n)
 	if n == nil || size == 0 {
@@ -78,12 +78,12 @@ func median(n []int) int {
 	}
 }
 
-// 기하평균
+// 기하평균. 1. 모든 숫자를 곱한후 2. 그 숫자의 n제곱근을 한다. 멤버가 2개면 2제곱, 3개면 3제곱
 func geo_mean(n []int) float64 {
 	size := len(n)
 	var total float64 = 1.0
 	for _, v := range n {
 		total *= float64(v)
 	}
-	return math.Pow(total,1.0/float64(size)) // n0.n1.n2.....nx의 곱을 n제곱근으로 나눈것
+	return math.Pow(total,1.0/float64(size))
 }
