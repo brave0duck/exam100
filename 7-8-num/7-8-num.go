@@ -50,5 +50,5 @@ func main() {
 		}
 	}
 	max, min := minMax(nlist)
-	fmt.Printf("리스트의 최대값/ 최소값은 : %d, %d 입니다\n", max, min)
+	fmt.Printf("리스트의 최대값/ 최소값은 : %d, %d\n", max, min)
 }
