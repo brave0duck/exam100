@@ -56,13 +56,13 @@ func check_number(one int, two int) string {
 		differ = -differ
 	}
 	if differ > 30 {
-		message = "차이가 30이상"
+		message = "30이상"
 	} else if differ > 20 {
-		message = "30이하 20이상"
+		message = "30이하 20초과"
 	} else if differ > 10 {
-		message = "20이하 10이상"
+		message = "20이하 10초과"
 	} else {
-		message = "아깝군요.10이내입니다"
+		message = "10이내"
 	}
 	return message
 }

@@ -11,7 +11,7 @@ func main() {
 	game := []string{"가위", "바위", "보"}
 
 	fmt.Println("===== 가위-바위-보 게임 ====")
-	fmt.Println("Coumputer가 가위.바위.보 선택중  ... 정했습니다")
+	fmt.Println("Coumputer가 가위.바위.보 중 하나를 선택했습니다")
 
 	com_i := rand.IntN(3)
 	com := game[com_i]
@@ -19,7 +19,7 @@ func main() {
 	// usr input
 	var usr string
 	var usr_i int
-	fmt.Print("당신은 (가위,바위,보 중 택1) ? ")
+	fmt.Print("당신의 선택은 (가위,바위,보)? ")
 	fmt.Scanf("%s\n", &usr)
 
 	if slices.Contains(game, usr) {
@@ -35,17 +35,19 @@ func main() {
 
 	if usr_i > com_i {
 		if usr_i == 2 && com_i == 0 {
-			fmt.Printf("졌습니다. You:%s, Com:%s\n", usr, com)
+			fmt.Printf("==> 졌습니다. You:%s, Com:%s\n", usr, com)
 		} else {
-			fmt.Printf("이겼습니다. You : %s, Com : %s\n", usr, com)
+			fmt.Printf("==> 이겼습니다! You : %s, Com : %s\n", usr, com)
 		}
 
 	} else if usr_i < com_i {
 		if usr_i == 0 && com_i == 2 {
-			fmt.Printf("이겼습니다. You:%s, Com:%s\n", usr, com)
+			fmt.Printf("==> 이겼습니다! You:%s, Com:%s\n", usr, com)
 		} else {
-			fmt.Printf("졌습니다. You: %s, Com:%s\n", usr, com)
+			fmt.Printf("==> 졌습니다.  You: %s, Com:%s\n", usr, com)
 		}
+	} else {
+		fmt.Printf("==> 비겼습니다. You:%s, Com:%s\n", usr, com)
 	}
 
 }
