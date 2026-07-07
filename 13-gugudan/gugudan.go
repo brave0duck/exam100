@@ -12,7 +12,7 @@ func gugudan(n int) {
 			fmt.Printf("%2d x %2d = %3d\n", n, i, n*i)
 		}
 	}else{
-		fmt.Println("wrong number")
+		fmt.Println("not implement. 2-9 only")
 	}
 }
 func main() {
