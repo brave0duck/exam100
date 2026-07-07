@@ -18,8 +18,9 @@ func Reversing(s string) string {
 	return string(b)
 }
 func isPalindrome(s string) bool {
+
 	r := Reversing(s)
-	if r == s {
+	if r == s && len(s) > 1 {
 		return true
 	}
 	return false
@@ -31,15 +32,19 @@ func main() {
 	fmt.Print("input string : ")
 	if scanner.Scan() {
 		input := scanner.Text()
+		if len(input) > 0 {
+			re := Reversing(input)
+			fmt.Println("Input : ", input)
+			fmt.Println("Reverse : ", re)
 
-		re := Reversing(input)
-		fmt.Println("Input : ", input)
-		fmt.Println("Reverse : ", re)
-
-		if isPalindrome(input) {
-			fmt.Println("---> This is Palindrome !")
+			if isPalindrome(input) {
+				fmt.Println("---> This is Palindrome !")
+			} else {
+				fmt.Println("---> Not Palindrome :)")
+			}
 		}else{
-			fmt.Println("---> Not Palindrome :)")
+			fmt.Println("exit...")
 		}
+
 	}
 }
