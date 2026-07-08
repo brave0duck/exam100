@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"os"
 	"strings"
-	"slices"
 )
 
 func file_read(file_name string) string {
@@ -31,9 +30,9 @@ func file_read(file_name string) string {
 	return string(data)
 }
 func main() {
-	var max_word string
-	max_count := make([]int, 5)
-	m := make(map[string]int, 0)
+
+	var topTier [5]int
+	m := make(map[string]int)
 
 	fmt.Println("2022년 조바이든 대통령취임 연설문")
 	fmt.Println("특정 단어가 몇번 반복될까요?")
@@ -43,13 +42,25 @@ func main() {
 
 	for _, v := range s {
 		m[v]++
-		if slices.Contains(max_count,m[v]){
-			
-		} > max_count {
-			max_count = m[v]
-			max_word = v
+		checkTop(&topTier, m[v])
+	}
+
+	fmt.Println("가장 많이 등장하는 단어 상위 5")
+	for i := 0; i < 5; i++ {
+		for k, _ := range m {
+			if topTier[i] == m[k] {
+				fmt.Printf("[%s] : %d\n", k, m[k])
+			}
 		}
 	}
-	fmt.Printf("가장 많이 등장하는 단어는 %s이고 %d회 등장했습니다\n", max_word, max_count)
 }
-func is
+
+func checkTop(t *[5]int, num int) bool {
+	for k, v := range t {
+		if num > v {
+			t[k] = num
+			return true
+		}
+	}
+	return false
+}
