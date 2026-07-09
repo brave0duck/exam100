@@ -1,4 +1,6 @@
-// 가장 많이 등장한 단어 찾기
+// 가장 많이 등장한 단어들 찾기
+// 조바이든 2022년 대통령취임 연설문으로 예제작성
+// 1. those - must - you - america - more - story 
 package main
 
 import (
@@ -31,7 +33,7 @@ func file_read(file_name string) string {
 }
 func main() {
 
-	var topTier [5]int
+	var topFive [5]int
 	m := make(map[string]int)
 
 	fmt.Println("2022년 조바이든 대통령취임 연설문")
@@ -39,26 +41,28 @@ func main() {
 
 	sample := file_read("sample.txt")
 	s := strings.Split(sample, " ")
-
+	
 	for _, v := range s {
-		m[v]++
-		checkTop(&topTier, m[v])
+		m[strings.Trim(v,"\n")]++
+		if len(v) > 4{		// 4글자 이하는 for,in,the 같은 조사가 너무 많음
+			checkTop(&topFive, m[v])
+		}
+		
 	}
 
 	fmt.Println("가장 많이 등장하는 단어 상위 5")
 	for i := 0; i < 5; i++ {
 		for k, _ := range m {
-			if topTier[i] == m[k] {
+			if topFive[i] == m[k] {
 				fmt.Printf("[%s] : %d\n", k, m[k])
 			}
 		}
 	}
 }
-
-func checkTop(t *[5]int, num int) bool {
-	for k, v := range t {
-		if num > v {
-			t[k] = num
+func checkTop(lst *[5]int, num int) bool {
+	for i, val := range lst {
+		if num > val {
+			lst[i] = num
 			return true
 		}
 	}
