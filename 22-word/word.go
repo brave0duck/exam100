@@ -52,7 +52,7 @@ func main() {
 
 	fmt.Println("가장 많이 등장하는 단어 상위 5")
 	for i := 0; i < 5; i++ {
-		for k, _ := range m {
+		for k := range m {
 			if topFive[i] == m[k] {
 				fmt.Printf("[%s] : %d\n", k, m[k])
 			}
