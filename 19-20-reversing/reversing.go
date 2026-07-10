@@ -5,21 +5,22 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"unicode/utf8"
 )
 
 func Reversing(s string) string {
-	size := len(s)
-	b := make([]byte, size)
+	size := utf8.RuneCountInString(s) // 유니코드의 글자길이를 구하는 함수
+	r := make([]rune, size)
 
 	for _, v := range s {
-		b[size-1] = byte(v)
+		r[size-1] = rune(v)
 		size--
 	}
-	return string(b)
+	return string(r)
 }
 func isPalindrome(s string) bool {
 
-	r := Reversing(s)
+	r := string(Reversing(s))
 	if r == s && len(s) > 1 {
 		return true
 	}
