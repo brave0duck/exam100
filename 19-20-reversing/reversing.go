@@ -20,7 +20,7 @@ func Reversing(s string) string {
 }
 func isPalindrome(s string) bool {
 
-	r := string(Reversing(s))
+	r := Reversing(s)
 	if r == s && len(s) > 1 {
 		return true
 	}
@@ -44,7 +44,7 @@ func main() {
 				fmt.Println("---> Not Palindrome :)")
 			}
 		}else{
-			fmt.Println("exit...")
+			fmt.Println("word too short")
 		}
 
 	}
