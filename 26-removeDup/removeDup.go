@@ -5,7 +5,7 @@ import (
 	"fmt"
 )
 
-func delChar(s string) string {
+func removeDup(s string) string {
 	var check rune
 	var result []rune
 
@@ -20,6 +20,6 @@ func delChar(s string) string {
 func main() {
 	var sample1 string = "aabcddeff" // ->abcdef
 	
-	s := delChar(sample1)
+	s := removeDup(sample1)
 	fmt.Println(sample1, "-->", s)
 }

@@ -9,7 +9,7 @@ import (
 )
 
 func Reversing(s string) string {
-	size := utf8.RuneCountInString(s) // 유니코드의 글자길이를 구하는 함수
+	size := utf8.RuneCountInString(s) // 유니코드의 글자길이를 구하려면 len()은 안됨
 	r := make([]rune, size)
 
 	for _, v := range s {
