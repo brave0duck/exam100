@@ -36,7 +36,7 @@ func bSearch(a []string, find string) int {
 	return -1 // not find
 }
 func strCmp(a string, b string) int {
-	for i,_ := range a {
+	for i := range a {
 		if a[i] > b[i] {
 			return -1
 		} else if a[i] < b[i] {
