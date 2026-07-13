@@ -7,7 +7,7 @@ import "fmt"
 
 func main() {
 	a := []string{"as", "at", "bbx", "crop", "diana", "eland", "golang", "kknd", "yong", "xls", "zztop"}
-	var find string = "zztop"
+	var find string = "as"
 
 	if result := bSearch(a, find); result == -1 {
 		fmt.Println("can't find : ", find)
