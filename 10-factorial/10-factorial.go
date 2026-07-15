@@ -13,7 +13,6 @@ func fac_v1(n int) int {
 	}
 	return n * fac_v1(n-1)
 }
-
 // int64이상의 숫자도 가능한 팩토리얼 함수. math.big사용
 func fac_v2(n int) *big.Int {
 	f := big.NewInt(1)
